@@ -9,7 +9,7 @@ namespace addressbook_webtests05._09
         [TestMethod]
         public void TestMethod1()
         {
-
+            Console.WriteLine("Hello World!");
         }
     }
 }
