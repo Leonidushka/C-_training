@@ -42,22 +42,49 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreationTest()
         {
-            driver.Navigate().GoToUrl("http://localhost/addressbook/edit.php");
-            driver.FindElement(By.Name("user")).Click();
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys("admin");
-            driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys("secret");
-            driver.FindElement(By.XPath("//input[@value='Login']")).Click();
-            driver.FindElement(By.Name("firstname")).Click();
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys("Leonid");
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys("Kazakov");
-            driver.FindElement(By.Name("theform")).Click();
-            driver.FindElement(By.Name("submit")).Click();
+            OpenHomePage();
+            Login("admin", "secret");
+            FillingNewContact("Leonid", "Kazakov");
+            SubmittingContactCreation();
+            Logout();
+        }
+
+        private void Logout()
+        {
             driver.FindElement(By.LinkText("Logout")).Click();
         }
+
+        private void SubmittingContactCreation()
+        {
+            driver.FindElement(By.Name("submit")).Click();
+        }
+        
+        private void FillingNewContact(string firstname, string lastname)
+        {
+            driver.FindElement(By.Name("firstname")).Click();
+            driver.FindElement(By.Name("firstname")).Clear();
+            driver.FindElement(By.Name("firstname")).SendKeys(firstname);
+            driver.FindElement(By.Name("lastname")).Clear();
+            driver.FindElement(By.Name("lastname")).SendKeys(lastname);
+            driver.FindElement(By.Name("theform")).Click();
+        }
+
+        private void Login(string username , string password)
+        {
+            driver.FindElement(By.Name("user")).Click();
+            driver.FindElement(By.Name("user")).Clear();
+            driver.FindElement(By.Name("user")).SendKeys(username);
+            driver.FindElement(By.Name("pass")).Clear();
+            driver.FindElement(By.Name("pass")).SendKeys(password);
+            driver.FindElement(By.XPath("//input[@value='Login']")).Click();
+        }
+
+
+        private void OpenHomePage()
+        {
+            driver.Navigate().GoToUrl("http://localhost/addressbook/edit.php");
+        }
+
         private bool IsElementPresent(By by)
         {
             try
