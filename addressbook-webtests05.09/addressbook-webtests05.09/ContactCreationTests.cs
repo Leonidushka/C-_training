@@ -44,7 +44,10 @@ namespace WebAddressbookTests
         {
             OpenHomePage();
             Login("admin", "secret");
-            FillingNewContact("Leonid", "Kazakov");
+            ContactData contact = new ContactData(" ", " ");
+            contact.Firstname = "Leonid";
+            contact.Lastname = "Kazakov";
+            //FillingNewContact("Leonid", "Kazakov");
             SubmittingContactCreation();
             Logout();
         }
@@ -59,13 +62,13 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("submit")).Click();
         }
         
-        private void FillingNewContact(string firstname, string lastname)
+        private void FillingNewContact(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(firstname);
+            driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
             driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(lastname);
+            driver.FindElement(By.Name("lastname")).SendKeys(contact.Lastname);
             driver.FindElement(By.Name("theform")).Click();
         }
 
