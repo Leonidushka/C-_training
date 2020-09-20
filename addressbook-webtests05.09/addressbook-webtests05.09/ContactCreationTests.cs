@@ -44,7 +44,7 @@ namespace WebAddressbookTests
         {
             OpenHomePage();
             Login("admin", "secret");
-            ContactData contact = new ContactData(" ", " ");
+            ContactData contact = new ContactData("Leonid", "Kazakov");
             contact.Firstname = "Leonid";
             contact.Lastname = "Kazakov";
             //FillingNewContact("Leonid", "Kazakov");
