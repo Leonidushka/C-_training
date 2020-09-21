@@ -35,5 +35,12 @@
       <FileName>GroupCreationTests.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="WebAddressbookTests.GroupData" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GroupData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

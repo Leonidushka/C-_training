@@ -47,7 +47,7 @@ namespace WebAddressbookTests
             ContactData contact = new ContactData("Leonid", "Kazakov");
             contact.Firstname = "Leonid";
             contact.Lastname = "Kazakov";
-            //FillingNewContact("Leonid", "Kazakov");
+            FillingNewContact(contact);
             SubmittingContactCreation();
             Logout();
         }
