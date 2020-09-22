@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -8,6 +9,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
+
 {
     [TestFixture]
     public class GroupRemovalTests
@@ -21,7 +23,7 @@ namespace WebAddressbookTests
         public void SetupTest()
         {
             driver = new FirefoxDriver();
-            baseURL = "http://localhost/addressbook/";
+            baseURL = "http://localhost/addressbook";
             verificationErrors = new StringBuilder();
         }
 
@@ -42,27 +44,27 @@ namespace WebAddressbookTests
         [Test]
         public void GroupRemovalTest()
         {
-            GoToHomePage();
-            Login(new AccountData("admin", "secret"));
+            OpenHomePage();
+            Login(new AccountData("admin","secret"));
             GoToGroupsPage();
             SelectGroup(1);
-            DeleteGroup();
-            ReturnToGroupPage();
+            NewMethod();
+            ReturnToGroupsPage();
         }
 
-        private void ReturnToGroupPage()
+        private void ReturnToGroupsPage()
         {
             driver.FindElement(By.LinkText("groups")).Click();
         }
 
-        private void DeleteGroup()
+        private void NewMethod()
         {
             driver.FindElement(By.Name("delete")).Click();
         }
 
         private void SelectGroup(int index)
         {
-            driver.FindElement(By.Name("selected[" + index + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])["+ index +"]")).Click();
         }
 
         private void GoToGroupsPage()
@@ -75,14 +77,12 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("user")).Click();
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys(account.Username);
-            driver.FindElement(By.Id("LoginForm")).Click();
-            driver.FindElement(By.Name("pass")).Click();
             driver.FindElement(By.Name("pass")).Clear();
             driver.FindElement(By.Name("pass")).SendKeys(account.Password);
             driver.FindElement(By.XPath("//input[@value='Login']")).Click();
         }
 
-        private void GoToHomePage()
+        private void OpenHomePage()
         {
             driver.Navigate().GoToUrl("http://localhost/addressbook/");
         }
