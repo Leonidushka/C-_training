@@ -10,15 +10,11 @@ namespace WebAddressbookTests
 {
     public class ContactHelper : HelperBase
     {
-        
-
-
-        public ContactHelper(IWebDriver driver)
-            : base(driver)
+        public ContactHelper(IWebDriver driver): base(driver)
         {
             this.driver = driver;
         }
-        public void FillingNewContact(ContactData contact)
+        public ContactHelper FillingNewContact(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -26,11 +22,13 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("lastname")).Clear();
             driver.FindElement(By.Name("lastname")).SendKeys(contact.Lastname);
             driver.FindElement(By.Name("theform")).Click();
+            return this;
         }
 
-        public void SubmittingContactCreation()
+        public ContactHelper SubmittingContactCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
+            return this;
         }
     }
 }

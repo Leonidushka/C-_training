@@ -35,7 +35,7 @@ namespace WebAddressbookTests
 
 
 
-        protected void GoToGroupsPage()
+        public void GoToGroupsPage()
         {
 
             driver.FindElement(By.LinkText("groups")).Click();
