@@ -39,7 +39,7 @@ namespace WebAddressbookTests
         }
 
         
-
+        // вопрос
         public GroupHelper GoToGroupsPage()
         {
             driver.FindElement(By.LinkText("groups")).Click();
