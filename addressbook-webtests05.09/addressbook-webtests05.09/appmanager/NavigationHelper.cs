@@ -12,7 +12,7 @@ namespace WebAddressbookTests
     public class NavigationHelper : HelperBase
     {
         
-        private string baseURL;
+        public string baseURL;
 
         public NavigationHelper(IWebDriver driver, string baseURL) 
             : base(driver) 
@@ -24,7 +24,7 @@ namespace WebAddressbookTests
         public void OpenHomePage()
         {
 
-            driver.Navigate().GoToUrl(baseURL);
+            driver.Navigate().GoToUrl("http://localhost/addressbook");
         }
 
         // Ни в какую тест не хочет добавлять через "Add New" для контактов, пришлось сделать стартовой форму на создание контакта
