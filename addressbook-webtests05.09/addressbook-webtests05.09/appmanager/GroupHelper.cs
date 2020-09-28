@@ -12,14 +12,14 @@ namespace WebAddressbookTests
     {
         
 
-        public GroupHelper(IWebDriver driver) : base(driver)
+        public GroupHelper(ApplicationManager manager) : base(manager)
         {
     
         }
 
         public GroupHelper Create(GroupData group)
         {
-
+            manager.Navigation.GoToGroupsPage();
             InitGroupCreation();
             FillGroupForm(group);
             SubmitGroupCreation();
@@ -73,7 +73,7 @@ namespace WebAddressbookTests
         }
         public GroupHelper ReturnToGroupPage()
         {
-            driver.FindElement(By.LinkText("group page")).Click();
+            driver.FindElement(By.LinkText("groups")).Click();
             return this;
         }
         public GroupHelper SelectGroup(int index)
@@ -90,7 +90,7 @@ namespace WebAddressbookTests
 
         public GroupHelper SubmitGroupModification()
         {
-            driver.FindElement(By.Name("delete")).Click();
+            driver.FindElement(By.Name("update")).Click();
             return this;
         }
 

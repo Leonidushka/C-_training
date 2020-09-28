@@ -10,12 +10,14 @@ namespace WebAddressbookTests
 {
     public class HelperBase
     {
+        public ApplicationManager manager;
         protected IWebDriver driver;
 
 
-        public HelperBase(IWebDriver driver)
+        public HelperBase(ApplicationManager manager)
         {
-            this.driver = driver;
+            this.manager = manager;
+            this.driver = manager.Driver;
         }
     }
 }
