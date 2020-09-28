@@ -13,11 +13,11 @@ namespace WebAddressbookTests
         [Test]
         public void ContactModificationTest()
         {
-            app.Groups
-            .GoToGroupsPage()
-            .SelectGroup(1)
+            app.Contact
+            .OpenHomePageForContacts()
+            .SelectContact(1)
             .Remove()
-            .ReturnToGroupPage();
+            .OpenHomePageForContacts();
         }
     }
 }

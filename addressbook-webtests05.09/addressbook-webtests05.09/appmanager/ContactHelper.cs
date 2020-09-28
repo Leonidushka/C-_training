@@ -14,6 +14,12 @@ namespace WebAddressbookTests
         {
             
         }
+        public ContactHelper OpenHomePageForContacts()
+        {
+            driver.Navigate().GoToUrl("http://localhost/addressbook/edit.php");
+            return this;
+        }
+
         public ContactHelper FillingNewContact(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
@@ -28,6 +34,18 @@ namespace WebAddressbookTests
         public ContactHelper SubmittingContactCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
+            return this;
+        }
+
+        public ContactHelper SelectContact(int index)
+        {
+            driver.FindElement(By.Id("6")).Click();
+            return this;
+        }
+
+        public ContactHelper Remove()
+        {
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             return this;
         }
     }
