@@ -14,10 +14,10 @@ namespace WebAddressbookTests
         public void ContactRemovalTest()
         {
             app.Contact
-            .OpenHomePageForContacts()
-            .SelectContact(14)
+            .OpenHomePage()
+            .SelectContact(1)
             .Remove()
-            .OpenHomePageForContacts();
+            .OpenHomePage();
         }
     }
 }

@@ -10,13 +10,15 @@ namespace WebAddressbookTests
 {
     public class ContactHelper : HelperBase
     {
+        private bool acceptNextAlert;
+
         public ContactHelper(ApplicationManager manager) : base(manager)
         {
-            
+
         }
-        public ContactHelper OpenHomePageForContacts()
+        public ContactHelper OpenHomePage()
         {
-            driver.Navigate().GoToUrl("http://localhost/addressbook/edit.php");
+            driver.Navigate().GoToUrl("http://localhost/addressbook");
             return this;
         }
 
@@ -39,15 +41,52 @@ namespace WebAddressbookTests
 
         public ContactHelper SelectContact(int index)
         {
-            driver.FindElement(By.Name("selected[][" + index + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
             return this;
-            
+
         }
+
+
 
         public ContactHelper Remove()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             return this;
+        }
+
+        public bool IsAlertPresent()
+        {
+            try
+            {
+                driver.SwitchTo().Alert();
+                return true;
+            }
+            catch (NoAlertPresentException)
+            {
+                return false;
+            }
+        }
+
+       public string CloseAlertAndGetItsText()
+        {
+            try
+            {
+                IAlert alert = driver.SwitchTo().Alert();
+                string alertText = alert.Text;
+                if (acceptNextAlert)
+                {
+                    alert.Accept();
+                }
+                else
+                {
+                    alert.Dismiss();
+                }
+                return alertText;
+            }
+            finally
+            {
+                acceptNextAlert = true;
+            }
         }
     }
 }
