@@ -15,7 +15,7 @@ namespace WebAddressbookTests
         {
             app.Contact
             .OpenHomePageForContacts()
-            .SelectContact(1)
+            .SelectContact(14)
             .Remove()
             .OpenHomePageForContacts();
         }

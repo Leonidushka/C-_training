@@ -39,8 +39,9 @@ namespace WebAddressbookTests
 
         public ContactHelper SelectContact(int index)
         {
-            driver.FindElement(By.Id("6")).Click();
+            driver.FindElement(By.Name("selected[][" + index + "]")).Click();
             return this;
+            
         }
 
         public ContactHelper Remove()
