@@ -46,28 +46,13 @@ namespace WebAddressbookTests
 
         }
 
-
-
         public ContactHelper Remove()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             return this;
         }
 
-        public bool IsAlertPresent()
-        {
-            try
-            {
-                driver.SwitchTo().Alert();
-                return true;
-            }
-            catch (NoAlertPresentException)
-            {
-                return false;
-            }
-        }
-
-       public string CloseAlertAndGetItsText()
+        public string RemoveApproval()
         {
             try
             {
@@ -86,6 +71,19 @@ namespace WebAddressbookTests
             finally
             {
                 acceptNextAlert = true;
+            }
+        }
+
+        private bool IsAlertPresent()
+        {
+            try
+            {
+                driver.SwitchTo().Alert();
+                return true;
+            }
+            catch (NoAlertPresentException)
+            {
+                return false;
             }
         }
     }
