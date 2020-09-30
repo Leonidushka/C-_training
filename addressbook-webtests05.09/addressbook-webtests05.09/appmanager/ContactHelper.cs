@@ -38,6 +38,18 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("submit")).Click();
             return this;
         }
+        /*
+        public ContactHelper(int v, ContactData newData)
+        {
+            OpenHomePage();
+            SelectContact(v);
+            InitContactModification();
+            FillGroupForm(newData);
+            SubmitGroupModification();
+            ReturnToGroupPage();
+            return this;
+        }
+        */
 
         public ContactHelper SelectContact(int index)
         {
@@ -66,6 +78,9 @@ namespace WebAddressbookTests
                 {
                     alert.Dismiss();
                 }
+               
+                    driver.FindElement(By.CssSelector("div.msgbox"));
+                
                 return alertText;
             }
             finally
@@ -85,6 +100,18 @@ namespace WebAddressbookTests
             {
                 return false;
             }
+        }
+        // Contact Modification
+        public ContactHelper InitContactModification()
+        {
+            driver.FindElement(By.Name("Edit")).Click();
+            return this;
+        }
+        
+        public ContactHelper SubmitContactModification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
         }
     }
 }
