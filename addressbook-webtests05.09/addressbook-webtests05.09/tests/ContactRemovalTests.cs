@@ -17,8 +17,8 @@ namespace WebAddressbookTests
             .OpenHomePage()
             .SelectContact(1)
             .Remove()
-            .RemoveApproval();
-         /*.OpenHomePage();*/
+            .RemoveApproval()
+            .OpenHomePage();
         }
     }
 }

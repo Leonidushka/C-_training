@@ -10,7 +10,7 @@ namespace WebAddressbookTests
 {
     public class ContactHelper : HelperBase
     {
-        private bool acceptNextAlert;
+        private bool acceptNextAlert = true;
 
         public ContactHelper(ApplicationManager manager) : base(manager)
         {
@@ -64,42 +64,12 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public string RemoveApproval()
+        public ContactHelper RemoveApproval()
         {
-            try
-            {
-                IAlert alert = driver.SwitchTo().Alert();
-                string alertText = alert.Text;
-                if (acceptNextAlert)
-                {
-                    alert.Accept();
-                }
-                else
-                {
-                    alert.Dismiss();
-                }
-               
-                    driver.FindElement(By.CssSelector("div.msgbox"));
-                
-                return alertText;
-            }
-            finally
-            {
-                acceptNextAlert = true;
-            }
-        }
-
-        private bool IsAlertPresent()
-        {
-            try
-            {
-                driver.SwitchTo().Alert();
-                return true;
-            }
-            catch (NoAlertPresentException)
-            {
-                return false;
-            }
+            IAlert alert = driver.SwitchTo().Alert();
+            alert.Accept();
+            driver.FindElement(By.CssSelector("div.msgbox"));
+            return this;
         }
         // Contact Modification
         public ContactHelper InitContactModification()
