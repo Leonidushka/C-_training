@@ -38,18 +38,18 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("submit")).Click();
             return this;
         }
-        /*
-        public ContactHelper(int v, ContactData newData)
+        
+        public ContactHelper Modify(int v, ContactData newData)
         {
             OpenHomePage();
             SelectContact(v);
             InitContactModification();
-            FillGroupForm(newData);
-            SubmitGroupModification();
-            ReturnToGroupPage();
+            FillContactForm(newData);
+            SubmitContactModification();
+            OpenHomePage();
             return this;
         }
-        */
+        
 
         public ContactHelper SelectContact(int index)
         {
@@ -74,7 +74,18 @@ namespace WebAddressbookTests
         // Contact Modification
         public ContactHelper InitContactModification()
         {
-            driver.FindElement(By.Name("Edit")).Click();
+            driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img")).Click();
+            return this;
+        }
+
+        public ContactHelper FillContactForm(ContactData contact)
+        {
+            driver.FindElement(By.Name("firstname")).Click();
+            driver.FindElement(By.Name("firstname")).Clear();
+            driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
+            driver.FindElement(By.Name("lastname")).Click();
+            driver.FindElement(By.Name("lastname")).Clear();
+            driver.FindElement(By.Name("lastname")).SendKeys(contact.Lastname);
             return this;
         }
         
