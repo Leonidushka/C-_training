@@ -20,5 +20,13 @@ namespace WebAddressbookTests
             this.driver = manager.Driver;
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
         }
+        public void Type(By locator, string text)
+        {
+            if (text != null)
+            {
+                driver.FindElement(locator).Clear();
+                driver.FindElement(locator).SendKeys(text);
+            }
+        }
     }
 }
