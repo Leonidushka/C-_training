@@ -21,7 +21,7 @@ namespace WebAddressbookTests
             driver.Navigate().GoToUrl("http://localhost/addressbook");
             return this;
         }
-
+        /*
         public ContactHelper FillingNewContact(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
@@ -31,7 +31,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("lastname")).SendKeys(contact.Lastname);
             driver.FindElement(By.Name("theform")).Click();
             return this;
-        }
+        }*/
 
         public ContactHelper SubmittingContactCreation()
         {

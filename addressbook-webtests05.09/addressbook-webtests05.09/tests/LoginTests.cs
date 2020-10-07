@@ -27,11 +27,16 @@ namespace WebAddressbookTests
         [Test]
         public void LoginWithInValidCredentials()
         {
+
             // prepare
             app.Auth.Logout();
 
             // action
             AccountData account = new AccountData("admin", "123456");
+    
+
+            // action
+            
             app.Auth.Login(account);
 
             // verification
