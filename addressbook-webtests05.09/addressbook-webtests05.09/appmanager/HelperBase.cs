@@ -12,6 +12,7 @@ namespace WebAddressbookTests
     {
         public ApplicationManager manager;
         protected IWebDriver driver;
+        
 
 
         public HelperBase(ApplicationManager manager)
@@ -41,5 +42,6 @@ namespace WebAddressbookTests
                 return false;
             }
         }
+     
     }
 }

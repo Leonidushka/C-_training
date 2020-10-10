@@ -19,6 +19,7 @@ namespace WebAddressbookTests
             contact.Firstname = "Leonid";
             contact.Lastname = "Kazakov";
             app.Contact
+            .InitContactCreation()
             .FillContactForm(contact)
             .SubmittingContactCreation();
             //

@@ -32,7 +32,12 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("theform")).Click();
             return this;
         }*/
+        public ContactHelper InitContactCreation()
+        {
+            driver.FindElement(By.LinkText("add new")).Click();
 
+            return this;
+        }
         public ContactHelper SubmittingContactCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
@@ -90,5 +95,6 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("update")).Click();
             return this;
         }
+
     }
 }
