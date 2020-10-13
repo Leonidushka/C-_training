@@ -14,8 +14,8 @@ namespace WebAddressbookTests
         [Test]
         public void ContactModificationTest()
         {
-            if (!IsElementPresent(By.XPath("//img[@alt='Edit']")))
-            {
+            if (!app.Contact.IsElementPresent(app.Contact.IsContactPresent))
+                    { 
                 // проба добавить тест если контакт отсутствует
                 ContactData contact = new ContactData("Mika", "Hakkinen");
                 app.Contact

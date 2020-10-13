@@ -10,8 +10,8 @@ namespace WebAddressbookTests
 {
     public class GroupHelper : HelperBase
     {
-        
 
+        public By IsGroupPresent = By.ClassName("group");
         public GroupHelper(ApplicationManager manager) : base(manager)
         {
     

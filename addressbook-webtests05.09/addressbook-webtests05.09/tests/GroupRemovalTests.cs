@@ -18,9 +18,9 @@ namespace WebAddressbookTests
         [Test]
         public void GroupRemovalTest()
         {
-            if (!IsElementPresent(By.XPath("(//input[@name='selected[]")))
+            if (!app.Groups.IsElementPresent(app.Groups.IsGroupPresent))
             {
-                // проба добавить тест если контакт отсутствует
+                // проба добавить тест если группа отсутствует
                 GroupData group = new GroupData("zzz");
                 app.Groups.Create(group);
 

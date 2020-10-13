@@ -10,12 +10,15 @@ namespace WebAddressbookTests
 {
     public class ContactHelper : HelperBase
     {
-        private bool acceptNextAlert = true;
 
+        public By IsContactPresent = By.ClassName("contact");
         public ContactHelper(ApplicationManager manager) : base(manager)
         {
 
         }
+
+
+
         public ContactHelper OpenHomePage()
         {
             driver.Navigate().GoToUrl("http://localhost/addressbook");
@@ -43,7 +46,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("submit")).Click();
             return this;
         }
-        
+
         public ContactHelper Modify(int v, ContactData newData)
         {
             OpenHomePage();
@@ -54,7 +57,7 @@ namespace WebAddressbookTests
             OpenHomePage();
             return this;
         }
-        
+
 
         public ContactHelper SelectContact(int index)
         {
@@ -89,12 +92,11 @@ namespace WebAddressbookTests
             Type(By.Name("lastname"), contact.Lastname);
             return this;
         }
-        
+
         public ContactHelper SubmitContactModification()
         {
             driver.FindElement(By.Name("update")).Click();
             return this;
         }
-
     }
 }

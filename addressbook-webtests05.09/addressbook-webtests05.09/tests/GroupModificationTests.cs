@@ -14,7 +14,7 @@ namespace WebAddressbookTests
         [Test]
         public void GroupModificationTest()
         {
-            if (!IsElementPresent(By.XPath("(//input[@name='selected[]")))
+            if (!app.Groups.IsElementPresent(app.Groups.IsGroupPresent))
             {
                 // проба добавить тест если контакт отсутствует
                 GroupData group = new GroupData("zzz");
