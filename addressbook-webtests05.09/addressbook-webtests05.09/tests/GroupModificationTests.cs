@@ -28,20 +28,6 @@ namespace WebAddressbookTests
 
             app.Groups.Modify(1, newData);
         }
-
-        private bool IsElementPresent(By by)
-        {
-            try
-            {
-                app.Driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-
-        }
     }
 }
 

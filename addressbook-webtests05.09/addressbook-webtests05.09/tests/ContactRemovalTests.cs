@@ -30,18 +30,5 @@ namespace WebAddressbookTests
             .RemoveApproval()
             .OpenHomePage();
         }
-        private bool IsElementPresent(By by)
-        {
-            try
-            {
-                app.Driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-
-        }
     }
 }

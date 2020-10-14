@@ -31,18 +31,5 @@ namespace WebAddressbookTests
             .Remove()
             .ReturnToGroupPage();
         }
-        private bool IsElementPresent(By by)
-        {
-            try
-            {
-                app.Driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-
-        }
     }
 }

@@ -30,19 +30,5 @@ namespace WebAddressbookTests
 
             app.Contact.Modify(1, newData);
         }
-
-        private bool IsElementPresent(By by)
-        {
-            try
-            {
-                app.Driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-
-        }
     }
 }
