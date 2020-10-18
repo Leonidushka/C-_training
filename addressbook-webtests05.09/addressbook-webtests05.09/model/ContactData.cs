@@ -19,17 +19,46 @@ namespace WebAddressbookTests
 
         public bool Equals(ContactData other)
         {
-            if (Object.ReferenceEquals(other, null))
+            if (object.ReferenceEquals(other.Firstname, null) && (object.ReferenceEquals(other.Lastname, null)))
             {
                 return false;
-            }
 
-            if (Object.ReferenceEquals(this, other))
+            }
+            if (object.ReferenceEquals(this, other.Firstname) && (object.ReferenceEquals(this, other.Lastname)))
             {
                 return true;
             }
             return Firstname == other.Firstname && Lastname == other.Lastname;
         }
+
+        public override int GetHashCode()
+        {
+            return Firstname.GetHashCode();
+            return Lastname.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return "name=" + Firstname;
+            return "name=" + Lastname;
+        }
+        public int CompareTo(ContactData other)
+        {
+            if (Object.ReferenceEquals(other, null))
+            {
+                return 1;
+            }
+            if (Firstname.CompareTo(other.Firstname) != 0)
+            {
+                return Firstname.CompareTo(other.Firstname);
+            }
+            else
+            {
+                return Lastname.CompareTo(other.Lastname);
+
+            }
+        }
+
         public string Firstname
         {
             get

@@ -60,6 +60,19 @@ namespace WebAddressbookTests
         }
 
 
+        public ContactHelper Remove(int p)
+        {
+
+            OpenHomePage();
+            SelectContact(p);
+            RemoveContact();
+            RemoveApproval();
+            OpenHomePage();
+            return this;
+
+        }
+
+
         public ContactHelper SelectContact(int index)
         {
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (index + 1) + "]")).Click();
@@ -67,7 +80,7 @@ namespace WebAddressbookTests
 
         }
 
-        public ContactHelper Remove()
+        public ContactHelper RemoveContact()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             return this;

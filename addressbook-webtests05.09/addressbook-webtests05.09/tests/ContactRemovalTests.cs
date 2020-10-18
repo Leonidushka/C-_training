@@ -23,12 +23,15 @@ namespace WebAddressbookTests
                     .FillContactForm(contact)
                     .SubmittingContactCreation();
             }
-            app.Contact
-            .OpenHomePage()
-            .SelectContact(1)
-            .Remove()
-            .RemoveApproval()
-            .OpenHomePage();
+            List<ContactData> oldContact = app.Contact.GetContactList();
+
+
+            app.Contact.Remove(0);
+
+            List<ContactData> newContact = app.Contact.GetContactList();
+
+            oldContact.RemoveAt(0);
+            Assert.AreEqual(oldContact, newContact);
         }
     }
 }
