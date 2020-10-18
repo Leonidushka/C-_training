@@ -43,9 +43,10 @@ namespace WebAddressbookTests
         public GroupHelper Remove(int p)
         {
 
-            manager.Navigation.GoToGroupsPage();
+            GoToGroupsPage();
             SelectGroup(p);
             RemoveGroup();
+            ReturnToGroupPage();
             return this;
 
         }
