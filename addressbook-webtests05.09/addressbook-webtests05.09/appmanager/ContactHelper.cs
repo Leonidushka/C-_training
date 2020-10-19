@@ -119,7 +119,8 @@ namespace WebAddressbookTests
             ICollection<IWebElement> elements = driver.FindElements(By.Name("entry"));
             foreach (IWebElement element in elements)
             {
-                contacts.Add(new ContactData(element.Text, element.Text));
+                IList<IWebElement> windows = element.FindElements(By.TagName("td"));
+                contacts.Add(new ContactData(windows[1].Text, windows[2].Text));
             }
             return contacts;
         }
