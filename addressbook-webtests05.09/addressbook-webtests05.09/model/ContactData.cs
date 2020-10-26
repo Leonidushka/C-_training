@@ -10,6 +10,7 @@ namespace WebAddressbookTests
     {
 
         private string allPhones;
+        private string allEmails;
 
         public ContactData(string firstname, string lastname)
         {
@@ -67,6 +68,12 @@ namespace WebAddressbookTests
         public string MobilePhone { get; set; }
 
         public string WorkPhone { get; set; }
+        
+        public string Email { get; set; }
+        
+        public string Email2 { get; set; }
+
+        public string Email3 { get; set; }
 
         public string AllPhones 
         {
@@ -80,15 +87,13 @@ namespace WebAddressbookTests
                 {
                     return CleanUp(HomePhone) + CleanUp(MobilePhone) + CleanUp(WorkPhone).Trim();
                 }
-
-
-                 
             }
             set 
             {
                 allPhones = value;
             }
         }
+
 
         private string CleanUp(string phone)
         {
@@ -97,6 +102,38 @@ namespace WebAddressbookTests
                 return "";
             }
                 return phone.Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "") + "\r\n";
+        }
+        public string AllEmails
+        {
+            get
+            {
+                if (allEmails != null)
+                {
+                    return allEmails;
+                }
+                else
+                {
+                    return (CleanUpEmail(Email) + CleanUpEmail(Email2) + CleanUpEmail(Email3)).Trim();
+                }
+
+            }
+            set
+            {
+                allEmails = value;
+            }
+        }
+
+        private string CleanUpEmail(string email)
+        {
+            if (email == null || email == "")
+            {
+                return "";
+            }
+            else
+            {
+                return email.Replace(" ", "") + "\r\n";
+            }
+
         }
     }
 }

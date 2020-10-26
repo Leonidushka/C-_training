@@ -17,13 +17,13 @@ namespace WebAddressbookTests
 
         }
 
-       
+
         public ContactHelper OpenHomePage()
         {
             driver.Navigate().GoToUrl("http://localhost/addressbook");
             return this;
         }
-       
+
         public ContactHelper Create(ContactData contact)
         {
             OpenHomePage();
@@ -34,7 +34,7 @@ namespace WebAddressbookTests
             return this;
 
         }
-       
+
         public ContactHelper InitContactCreation()
         {
             driver.FindElement(By.LinkText("add new")).Click();
@@ -143,11 +143,13 @@ namespace WebAddressbookTests
             string firstname = windows[2].Text;
             string address = windows[3].Text;
             string allPhones = windows[5].Text;
+            string allEmails = windows[4].Text;
 
             return new ContactData(firstname, lastname)
             {
                 Address = address,
                 AllPhones = allPhones,
+                AllEmails = allEmails,
             };
         }
 
@@ -173,9 +175,28 @@ namespace WebAddressbookTests
                 Address = address,
                 HomePhone = home,
                 MobilePhone = mobile,
-                WorkPhone = work
+                WorkPhone = work,
+                Email = email,
+                Email2 = email2,
+                Email3 = email3
             };
         }
+        /*
+        public ContactData GetInformationFromDetailPage(int index)
+        {
+            manager.Navigation.OpenHomePage();
+            driver.FindElements(By.Name("entry"))[index].FindElements(By.TagName("td"))[6].FindElement(By.TagName("a")).Click();
+            string firstname = driver.FindElement(By.Name("firstname")).GetAttribute("value");
+            string lastname = driver.FindElement(By.Name("lastname")).GetAttribute("value");
 
+
+
+            return new ContactData(firstname, lastname)
+            {
+
+            };
+
+
+        }*/
     }
 }
