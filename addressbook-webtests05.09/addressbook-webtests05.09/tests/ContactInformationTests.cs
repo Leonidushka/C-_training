@@ -15,7 +15,8 @@ namespace WebAddressbookTests
         {
           ContactData fromTable = app.Contact.GetContactInformationFromTable(0);
           ContactData fromForm = app.Contact.GetContactInformationFromEditForm(0);
-          
+            string detailContact = app.Contact.GetInformationFromDetailPage(0);
+            string editAssert = app.Contact.EditForAssert(0);
         
 
             // making verification
@@ -23,6 +24,7 @@ namespace WebAddressbookTests
             Assert.AreEqual(fromTable.Address, fromForm.Address);
             Assert.AreEqual(fromTable.AllPhones, fromForm.AllPhones);
             Assert.AreEqual(fromTable.AllEmails, fromForm.AllEmails);
+            Assert.AreEqual(detailContact, editAssert);
         }
     }
 }
