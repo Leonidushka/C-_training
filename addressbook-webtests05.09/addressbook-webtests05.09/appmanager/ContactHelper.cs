@@ -186,30 +186,10 @@ namespace WebAddressbookTests
 
             string smContact = driver.FindElement(By.Id("content")).Text;
 
-
-            return smContact.Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "").Replace("H:", "").Replace("M:", "").Replace("W:", "").Trim();
+            return smContact;
+          
         }
 
-        public string EditForAssert(int index)
-        {
-            manager.Navigation.OpenHomePage();
-            InitContactModification(0);
-
-
-            string firstname = driver.FindElement(By.Name("firstname")).GetAttribute("value");
-            string lastname = driver.FindElement(By.Name("lastname")).GetAttribute("value");
-            string address = driver.FindElement(By.Name("address")).GetAttribute("value");
-
-            string home = driver.FindElement(By.Name("home")).GetAttribute("value");
-            string mobile = driver.FindElement(By.Name("mobile")).GetAttribute("value");
-            string work = driver.FindElement(By.Name("work")).GetAttribute("value");
-
-            string email = driver.FindElement(By.Name("email")).GetAttribute("value");
-            string email2 = driver.FindElement(By.Name("email2")).GetAttribute("value");
-            string email3 = driver.FindElement(By.Name("email3")).GetAttribute("value");
-
-            return (firstname + lastname + "\r\n" + address  + "\r\n" + home.Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "") + "\r\n" + mobile.Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "") + "\r\n" + work.Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "") + "\r\n" + "\r\n" + email + "\r\n" + email2 + "\r\n" + email3).Trim();
-
-        }
+        
     }
 }
